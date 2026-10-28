@@ -1,8 +1,24 @@
 /**
  * TP-Link CLI Developer Showcase Engine
- * Terminal simulation, live command filtering, and install snippet switcher.
+ * Terminal simulation, live command filtering, install snippet switcher, and Theme Manager.
  * Author: Dulith Divisekara (SLIIT Malabe)
  */
+
+// Theme Management
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
 
 const terminalDemos = {
   status: `<span class="text-slate-500">$</span> <span class="text-tplink-cyan font-semibold">tplink-cli status</span>
@@ -80,20 +96,20 @@ function runCommand(key) {
     screen.innerHTML = terminalDemos[key];
   }
   document.querySelectorAll('.cmd-tab').forEach(b => {
-    b.className = 'cmd-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white/5 text-slate-300 hover:bg-white/10 border border-white/5';
+    b.className = 'cmd-tab shrink-0 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-black/5 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-black/10 dark:hover:bg-white/10 border border-black/5 dark:border-white/5';
   });
   const activeBtn = document.getElementById('tab-' + key);
   if (activeBtn) {
-    activeBtn.className = 'cmd-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-tplink-teal/20 text-tplink-cyan border border-tplink-teal/40';
+    activeBtn.className = 'cmd-tab shrink-0 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-tplink-teal/20 text-tplink-teal dark:text-tplink-cyan border border-tplink-teal/40';
   }
 }
 
 const installSnippets = {
   curl: 'curl -fsSL https://tp-link-cli.dulith.me/install.sh | bash',
+  apt: `# Add official APT repository & install:\ncurl -fsSL https://tp-link-cli.dulith.me/apt/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/tplink.gpg\necho "deb [signed-by=/etc/apt/trusted.gpg.d/tplink.gpg] https://tp-link-cli.dulith.me/apt stable main" | sudo tee /etc/apt/sources.list.d/tplink.list\nsudo apt update && sudo apt install tplink-cli\n\n# Or install .deb directly:\ncurl -fsSLO https://tp-link-cli.dulith.me/tplink-cli_1.0.0_all.deb\nsudo dpkg -i tplink-cli_1.0.0_all.deb`,
   npm: 'npm install -g @dulith/tplink-cli\n# or run instantly without install:\nnpx @dulith/tplink-cli status',
   pip: 'pip install tplink-cli\n# or in isolated venv:\npipx install tplink-cli',
   brew: 'brew tap dulithdivisekara/tap\nbrew install tplink-cli',
-  apt: 'curl -fsSLO https://tp-link-cli.dulith.me/tplink-cli_1.0.0_all.deb\nsudo dpkg -i tplink-cli_1.0.0_all.deb',
   go: 'go install github.com/dulithdivisekara/tplink-cli/cmd/tplink-cli@latest',
   ruby: 'gem install tplink-cli'
 };
@@ -101,11 +117,11 @@ const installSnippets = {
 function setInstallTab(pkg) {
   document.getElementById('install-snippet').textContent = installSnippets[pkg];
   document.querySelectorAll('.inst-tab').forEach(b => {
-    b.className = 'inst-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white';
+    b.className = 'inst-tab shrink-0 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white';
   });
   const active = document.getElementById('btn-' + pkg);
   if (active) {
-    active.className = 'inst-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-tplink-teal/20 text-tplink-cyan border border-tplink-teal/40';
+    active.className = 'inst-tab shrink-0 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-tplink-teal/20 text-tplink-teal dark:text-tplink-cyan border border-tplink-teal/40';
   }
 }
 
@@ -113,7 +129,7 @@ function copyHeroCmd() {
   const text = document.getElementById('hero-cmd').textContent;
   navigator.clipboard.writeText(text);
   const btn = document.getElementById('hero-copy-btn');
-  btn.innerHTML = `<svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-emerald-400">Copied!</span>`;
+  btn.innerHTML = `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-emerald-500">Copied!</span>`;
   setTimeout(() => {
     btn.innerHTML = `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span>`;
   }, 2000);
@@ -134,6 +150,7 @@ function filterCommands() {
 }
 
 // Default init
+initTheme();
 window.addEventListener('DOMContentLoaded', () => {
   runCommand('status');
 });
