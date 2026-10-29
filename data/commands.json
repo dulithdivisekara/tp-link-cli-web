@@ -401,5 +401,16 @@
       "--legacy"
     ],
     "has_demo": false
+  },
+  {
+    "name": "tui",
+    "command": "tplink-cli tui",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Launch interactive Terminal UI (TUI)",
+    "flags": [
+      "--legacy"
+    ],
+    "has_demo": false
   }
 ]
