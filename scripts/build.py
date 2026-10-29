@@ -2,7 +2,7 @@
 """Static Site Builder & Validator for TP-Link CLI Showcase.
 
 Reads `data/metadata.json`, `data/commands.json`, and `data/benchmarks.json`,
-validates schemas, and pre-renders static HTML for Cloudflare Pages.
+validates schemas, and pre-renders static HTML for GitHub Pages and Cloudflare Pages.
 
 Author: Dulith Divisekara (SLIIT Malabe)
 """
@@ -39,7 +39,7 @@ def validate_data():
     with open(COMMANDS_FILE, "r", encoding="utf-8") as f:
         commands = json.load(f)
     assert isinstance(commands, list), "commands.json must be a JSON array"
-    assert len(commands) >= 18, f"Expected at least 18 commands, found {len(commands)}"
+    assert len(commands) >= 30, f"Expected at least 30 commands, found {len(commands)}"
 
     for c in commands:
         assert "name" in c, f"Command missing 'name': {c}"
@@ -53,22 +53,31 @@ def validate_data():
 
 def render_command_html(c):
     badge_colors = {
-        "Diagnostics": "bg-blue-500/10 text-blue-400 border-blue-500/20",
-        "Cellular": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-        "SMS": "bg-purple-500/10 text-purple-400 border-purple-500/20",
-        "Wi-Fi": "bg-amber-500/10 text-amber-400 border-amber-500/20",
-        "System": "bg-red-500/10 text-red-400 border-red-500/20",
-        "Tuning": "bg-teal-500/10 text-teal-400 border-teal-500/20",
-        "Interactive": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+        "Diagnostics": "bg-blue-100 text-blue-900 dark:bg-blue-900/40 dark:text-blue-300",
+        "Cellular": "bg-emerald-100 text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-300",
+        "SMS": "bg-purple-100 text-purple-900 dark:bg-purple-900/40 dark:text-purple-300",
+        "Wi-Fi": "bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-300",
+        "System": "bg-rose-100 text-rose-900 dark:bg-rose-900/40 dark:text-rose-300",
+        "Tuning": "bg-teal-100 text-teal-900 dark:bg-teal-900/40 dark:text-teal-300",
+        "Interactive": "bg-cyan-100 text-cyan-900 dark:bg-cyan-900/40 dark:text-cyan-300",
     }
-    badge_class = badge_colors.get(c.get("category", "Diagnostics"), "bg-slate-500/10 text-slate-400 border-white/10")
+    badge_class = badge_colors.get(c.get("category", "Diagnostics"), "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-300")
 
-    return f"""        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="{c['name']}" data-cat="{c['category']}">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">{c['command']}</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border {badge_class}">{c['category']}</span>
+    flags_html = ""
+    flags = c.get("flags", [])
+    if flags:
+        flag_tags = "".join([f'<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300">{f}</span>' for f in flags[:3]])
+        if len(flags) > 3:
+            flag_tags += f'<span class="text-xs font-mono text-slate-500">+{len(flags)-3}</span>'
+        flags_html = f'<div class="flex flex-wrap items-center gap-1.5 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800">{flag_tags}</div>'
+
+    return f"""        <div class="rounded-xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 cmd-card group transition-all duration-150" data-cmd="{c['name']}" data-cat="{c['category']}">
+          <div class="flex items-center justify-between mb-2.5 gap-2">
+            <code class="text-teal-700 dark:text-tplink-cyan text-sm font-bold font-mono group-hover:underline break-all">{c['command']}</code>
+            <span class="shrink-0 px-2.5 py-0.5 rounded text-xs font-sans font-semibold {badge_class}">{c['category']}</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">{c['description']}</p>
+          <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{c['description']}</p>
+          {flags_html}
         </div>"""
 
 

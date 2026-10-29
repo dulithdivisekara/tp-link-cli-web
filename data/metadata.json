@@ -2,7 +2,7 @@
   "name": "TP-Link Router CLI",
   "version": "1.0.0",
   "description": "High-performance developer CLI for TP-Link 4G/LTE/5G Archer and MiFi routers with carrier-grade RF diagnostics, BBR kernel tuning, MTU clamping, and band locking.",
-  "last_updated": "2026-10-28",
+  "last_updated": "2026-10-29",
   "author": {
     "name": "Dulith Divisekara",
     "affiliation": "SLIIT Malabe, Sri Lanka",
@@ -19,7 +19,7 @@
     "deb_package": "https://tp-link-cli.dulith.me/tplink-cli_1.0.0_all.deb"
   },
   "stats": {
-    "subcommands_count": 18,
+    "subcommands_count": 31,
     "supported_platforms": ["Linux", "macOS", "WSL2", "Raspberry Pi", "OpenWrt"]
   }
 }

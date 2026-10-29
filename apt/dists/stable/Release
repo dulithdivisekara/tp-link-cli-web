@@ -5,10 +5,10 @@ Codename: stable
 Architectures: all amd64 arm64 i386
 Components: main
 Description: Official APT repository for Universal TP-Link Router CLI
-Date: Thu, 29 Oct 2026 08:12:40 UTC
+Date: Thu, 29 Oct 2026 10:04:24 UTC
 MD5Sum:
  fd99429a74b222ec33fae7ba8a167be2 654 main/binary-all/Packages
- 55a846ebb439297c20152819d12c65b2 475 main/binary-all/Packages.gz
+ 71759b53cb058797aa69f481f6b22ffe 475 main/binary-all/Packages.gz
 SHA256:
  d3bb6d0186eace11c538b352087c3658dc55121c8daf9dd1fd1a3f5ac1df1ac7 654 main/binary-all/Packages
- fd91247ee27c514d892987860e764588d80b08c827153b5a2e68dbad25e78d27 475 main/binary-all/Packages.gz
+ 8c532e581ebc4a5c349696156d3a3c71c612c6cb4e66ce43e7b403a444691a14 475 main/binary-all/Packages.gz
