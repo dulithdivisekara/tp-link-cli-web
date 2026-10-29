@@ -7,7 +7,9 @@
     "description": "Show full router & cellular telemetry",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": true
   },
@@ -19,7 +21,9 @@
     "description": "Show RF signal metrics (RSRP, RSRQ, SNR)",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": true
   },
@@ -32,6 +36,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--enable",
       "--disable",
       "--earfcn",
@@ -48,6 +54,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<action>"
     ],
     "has_demo": false
@@ -61,6 +69,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<state>",
       "-i",
       "--interactive"
@@ -76,6 +86,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<code>"
     ],
     "has_demo": true
@@ -89,6 +101,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--limit",
       "--folder"
     ],
@@ -103,6 +117,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "-y",
       "--yes"
     ],
@@ -116,7 +132,9 @@
     "description": "Check active network profile and gateway safety",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -128,7 +146,9 @@
     "description": "Manage stored credentials",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -141,6 +161,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<cookie_val>"
     ],
     "has_demo": false
@@ -154,6 +176,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--optimize",
       "--fix"
     ],
@@ -167,7 +191,9 @@
     "description": "List connected LAN devices (IP, MAC, Hostname)",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": true
   },
@@ -179,7 +205,9 @@
     "description": "Manage DHCP static IP reservations",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -192,6 +220,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--limit",
       "--day"
     ],
@@ -206,6 +236,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--band",
       "--toggle",
       "--ssid"
@@ -221,6 +253,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--night-mode",
       "--start",
       "--end"
@@ -235,7 +269,9 @@
     "description": "Run router WAN and internet diagnostic test",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -248,6 +284,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<band>",
       "-i",
       "--interactive"
@@ -263,6 +301,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--web",
       "--no-web",
       "--port",
@@ -283,6 +323,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--lines",
       "-n",
       "--module",
@@ -302,6 +344,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--toggle",
       "--band",
       "--ssid",
@@ -320,7 +364,9 @@
     "description": "Manage NAT virtual server port forwarding rules",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -333,6 +379,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<state>",
       "<ip>"
     ],
@@ -347,6 +395,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<toggle>"
     ],
     "has_demo": false
@@ -360,6 +410,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "<toggle>",
       "--time",
       "--mode",
@@ -376,6 +428,8 @@
     "flags": [
       "--legacy",
       "--mono",
+      "--no-anim",
+      "--python-tui",
       "--sync"
     ],
     "has_demo": false
@@ -388,7 +442,9 @@
     "description": "View router operation mode (3G/4G vs Wireless)",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -400,7 +456,9 @@
     "description": "View Dynamic DNS (DDNS) providers and status",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -412,7 +470,9 @@
     "description": "Check for official TP-Link online firmware updates",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -424,7 +484,9 @@
     "description": "Launch interactive REPL console",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -436,7 +498,9 @@
     "description": "Display classic standard argparse help layout",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   },
@@ -445,10 +509,12 @@
     "command": "tplink-cli tui",
     "category": "System",
     "badge_color": "indigo",
-    "description": "Launch interactive Terminal UI (TUI)",
+    "description": "Launch interactive Terminal UI (vadimdemedes/ink React TUI)",
     "flags": [
       "--legacy",
-      "--mono"
+      "--mono",
+      "--no-anim",
+      "--python-tui"
     ],
     "has_demo": false
   }
