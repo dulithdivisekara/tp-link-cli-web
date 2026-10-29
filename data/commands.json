@@ -1,29 +1,20 @@
 [
   {
-    "name": "profile",
-    "command": "tplink-cli profile",
-    "category": "Diagnostics",
-    "badge_color": "blue",
-    "description": "Probe router model, firmware variant, and auto-detect HTTP session/token encryption.",
-    "flags": ["--host", "--timeout"],
-    "has_demo": false
-  },
-  {
     "name": "status",
     "command": "tplink-cli status",
     "category": "Diagnostics",
     "badge_color": "blue",
-    "description": "WAN IP, gateway, DNS servers, uptime, cellular network type, and connection state.",
-    "flags": ["--json", "--host"],
+    "description": "Show full router & cellular telemetry",
+    "flags": [],
     "has_demo": true
   },
   {
     "name": "signal",
-    "command": "tplink-cli signal [--watch]",
+    "command": "tplink-cli signal",
     "category": "Cellular",
     "badge_color": "emerald",
-    "description": "Real-time radio telemetry: RSRP (dBm), RSRQ (dB), SINR (dB), RSSI, Band (B1/B3/B8/B20/B40).",
-    "flags": ["--watch", "--interval", "--json"],
+    "description": "Show RF signal metrics (RSRP, RSRQ, SNR)",
+    "flags": [],
     "has_demo": true
   },
   {
@@ -31,134 +22,330 @@
     "command": "tplink-cli cell-lock",
     "category": "Cellular",
     "badge_color": "emerald",
-    "description": "Force-lock modem to specific carrier band (e.g., Band 3 1800MHz) or Physical Cell ID (PCI).",
-    "flags": ["--band", "--earfcn", "--pci"],
+    "description": "View or configure LTE Cell Lock",
+    "flags": [
+      "--enable",
+      "--disable",
+      "--earfcn",
+      "--pci"
+    ],
     "has_demo": true
   },
   {
-    "name": "set-mode",
-    "command": "tplink-cli set-mode 4G_ONLY",
-    "category": "Cellular",
-    "badge_color": "emerald",
-    "description": "Switch cellular RAT between AUTO, 4G_ONLY, 3G_ONLY, and 5G_NSA to prevent 3G drops.",
-    "flags": ["<mode>"],
+    "name": "dns",
+    "command": "tplink-cli dns",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Manage router DNS settings",
+    "flags": [
+      "<action>"
+    ],
     "has_demo": false
   },
   {
-    "name": "apn",
-    "command": "tplink-cli apn [--set name]",
-    "category": "Cellular",
-    "badge_color": "emerald",
-    "description": "Read or update APN profile (e.g. Hutch 'hutch3g' / 'net'), PDP type (IPv4/IPv6), and auth.",
-    "flags": ["--set", "--pdp", "--user", "--pass"],
-    "has_demo": false
-  },
-  {
-    "name": "sms-list",
-    "command": "tplink-cli sms list",
-    "category": "SMS",
-    "badge_color": "purple",
-    "description": "List SIM card inbox messages, extract 2FA verification codes, view sender, and timestamp.",
-    "flags": ["--unread", "--limit", "--json"],
-    "has_demo": false
-  },
-  {
-    "name": "sms-send",
-    "command": "tplink-cli sms send",
-    "category": "SMS",
-    "badge_color": "purple",
-    "description": "Transmit SMS message via the SIM modem to activate cellular bundles or query balance.",
-    "flags": ["--to", "--message"],
+    "name": "ipv6",
+    "command": "tplink-cli ipv6",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Toggle IPv6 stack (on/off)",
+    "flags": [
+      "<state>"
+    ],
     "has_demo": false
   },
   {
     "name": "ussd",
-    "command": "tplink-cli ussd \"*344#\"",
+    "command": "tplink-cli ussd",
+    "category": "Cellular",
+    "badge_color": "emerald",
+    "description": "Execute USSD query (e.g. *344# or *123#)",
+    "flags": [
+      "<code>"
+    ],
+    "has_demo": true
+  },
+  {
+    "name": "sms",
+    "command": "tplink-cli sms",
     "category": "SMS",
     "badge_color": "purple",
-    "description": "Send interactive USSD codes to carrier gateway for instant balance checks and reloads.",
-    "flags": ["<code>"],
-    "has_demo": false
-  },
-  {
-    "name": "wifi-status",
-    "command": "tplink-cli wifi status",
-    "category": "Wi-Fi",
-    "badge_color": "amber",
-    "description": "Display 2.4GHz & 5GHz SSID status, channel number, bandwidth (20/40/80MHz), and encryption.",
-    "flags": ["--json"],
-    "has_demo": false
-  },
-  {
-    "name": "wifi-channel",
-    "command": "tplink-cli wifi set-channel",
-    "category": "Wi-Fi",
-    "badge_color": "amber",
-    "description": "Change broadcast channel to avoid apartment RF congestion (e.g., Channels 1, 6, 11).",
-    "flags": ["--band", "--channel"],
-    "has_demo": false
-  },
-  {
-    "name": "clients",
-    "command": "tplink-cli clients",
-    "category": "Wi-Fi",
-    "badge_color": "amber",
-    "description": "List all connected LAN/Wi-Fi devices with MAC addresses, hostnames, assigned IPs, and bandwidth.",
-    "flags": ["--json"],
-    "has_demo": false
+    "description": "Read or send SMS",
+    "flags": [
+      "--limit",
+      "--folder"
+    ],
+    "has_demo": true
   },
   {
     "name": "reboot",
     "command": "tplink-cli reboot",
     "category": "System",
-    "badge_color": "red",
-    "description": "Cleanly restart router OS and modem module without touching physical reset pin.",
-    "flags": ["--yes"],
+    "badge_color": "indigo",
+    "description": "Reboot the router",
+    "flags": [
+      "-y",
+      "--yes"
+    ],
     "has_demo": false
   },
   {
-    "name": "reconnect",
-    "command": "tplink-cli reconnect",
+    "name": "profile",
+    "command": "tplink-cli profile",
+    "category": "Diagnostics",
+    "badge_color": "blue",
+    "description": "Check active network profile and gateway safety",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "config",
+    "command": "tplink-cli config",
     "category": "System",
-    "badge_color": "red",
-    "description": "Disconnect and reconnect WAN cellular session to trigger new CGNAT IP lease.",
-    "flags": ["--delay"],
+    "badge_color": "indigo",
+    "description": "Manage stored credentials",
+    "flags": [],
     "has_demo": false
   },
   {
-    "name": "optimize-network",
-    "command": "tplink-cli optimize-network",
-    "category": "Tuning",
-    "badge_color": "teal",
-    "description": "Apply/Revert kernel BBR, 1420 MTU clamping, Cloudflare 1.1.1.1 DNS, and TCP buffer sizes.",
-    "flags": ["--apply", "--revert", "--status"],
+    "name": "cookie",
+    "command": "tplink-cli cookie",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "View or save browser session cookie",
+    "flags": [
+      "<cookie_val>"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "wifi-guard",
+    "command": "tplink-cli wifi-guard",
+    "category": "Wi-Fi",
+    "badge_color": "amber",
+    "description": "Verify and optimize Wi-Fi link stability (no Ethernet needed)",
+    "flags": [
+      "--optimize",
+      "--fix"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "clients",
+    "command": "tplink-cli clients",
+    "category": "Diagnostics",
+    "badge_color": "blue",
+    "description": "List connected LAN devices (IP, MAC, Hostname)",
+    "flags": [],
     "has_demo": true
   },
   {
-    "name": "pulse",
-    "command": "tplink-cli pulse",
-    "category": "Tuning",
-    "badge_color": "teal",
-    "description": "Background UDP keepalive daemon that keeps 4G tower carrier states active indefinitely.",
-    "flags": ["--interval", "--target", "--daemon"],
+    "name": "reservation",
+    "command": "tplink-cli reservation",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Manage DHCP static IP reservations",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "data-limit",
+    "command": "tplink-cli data-limit",
+    "category": "Cellular",
+    "badge_color": "emerald",
+    "description": "View or set monthly cellular data cap",
+    "flags": [
+      "--limit",
+      "--day"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "wifi",
+    "command": "tplink-cli wifi",
+    "category": "Wi-Fi",
+    "badge_color": "amber",
+    "description": "View or configure Wi-Fi radios (2.4GHz / 5GHz)",
+    "flags": [
+      "--band",
+      "--toggle",
+      "--ssid"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "leds",
+    "command": "tplink-cli leds",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Control router LEDs and Night Mode schedule",
+    "flags": [
+      "--night-mode",
+      "--start",
+      "--end"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "diag",
+    "command": "tplink-cli diag",
+    "category": "Diagnostics",
+    "badge_color": "blue",
+    "description": "Run router WAN and internet diagnostic test",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "band",
+    "command": "tplink-cli band",
+    "category": "Cellular",
+    "badge_color": "emerald",
+    "description": "View or lock LTE Band (e.g. 3, 8, 40, auto)",
+    "flags": [
+      "<band>"
+    ],
+    "has_demo": true
+  },
+  {
+    "name": "calibrate",
+    "command": "tplink-cli calibrate",
+    "category": "Cellular",
+    "badge_color": "emerald",
+    "description": "Autonomous RF band calibration & Live Web UI",
+    "flags": [
+      "--web",
+      "--no-web",
+      "--port",
+      "--bands",
+      "--timeout",
+      "--dry-run"
+    ],
+    "has_demo": true
+  },
+  {
+    "name": "logs",
+    "command": "tplink-cli logs",
+    "category": "Diagnostics",
+    "badge_color": "blue",
+    "description": "Read or clear system & cellular event logs",
+    "flags": [
+      "--lines",
+      "-n",
+      "--module",
+      "-m",
+      "--level",
+      "-l",
+      "--clear"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "guest-wifi",
+    "command": "tplink-cli guest-wifi",
+    "category": "Wi-Fi",
+    "badge_color": "amber",
+    "description": "View or configure dual-band Guest Wi-Fi",
+    "flags": [
+      "--toggle",
+      "--band",
+      "--ssid",
+      "--key",
+      "--guest-password",
+      "--allow-lan",
+      "--isolate-lan"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "port-forward",
+    "command": "tplink-cli port-forward",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Manage NAT virtual server port forwarding rules",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "dmz",
+    "command": "tplink-cli dmz",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "View or configure DMZ host forwarding",
+    "flags": [
+      "<state>",
+      "<ip>"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "upnp",
+    "command": "tplink-cli upnp",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Manage Universal Plug and Play (UPnP)",
+    "flags": [
+      "<toggle>"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "reboot-schedule",
+    "command": "tplink-cli reboot-schedule",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Manage automated periodic reboot schedule",
+    "flags": [
+      "<toggle>",
+      "--time",
+      "--mode",
+      "--day"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "time",
+    "command": "tplink-cli time",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "View router system clock or trigger NTP sync",
+    "flags": [
+      "--sync"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "op-mode",
+    "command": "tplink-cli op-mode",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "View router operation mode (3G/4G vs Wireless)",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "ddns",
+    "command": "tplink-cli ddns",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "View Dynamic DNS (DDNS) providers and status",
+    "flags": [],
+    "has_demo": false
+  },
+  {
+    "name": "fw-check",
+    "command": "tplink-cli fw-check",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Check for official TP-Link online firmware updates",
+    "flags": [],
     "has_demo": false
   },
   {
     "name": "repl",
     "command": "tplink-cli repl",
-    "category": "Interactive",
-    "badge_color": "cyan",
-    "description": "Interactive shell session with tab-completion, live signal meters, and history navigation.",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Launch interactive REPL console",
     "flags": [],
-    "has_demo": true
-  },
-  {
-    "name": "benchmark",
-    "command": "tplink-cli benchmark",
-    "category": "Interactive",
-    "badge_color": "cyan",
-    "description": "Run latency jitter, packet fragmentation tests, and bufferbloat grade evaluation.",
-    "flags": ["--target", "--count"],
     "has_demo": false
   }
 ]

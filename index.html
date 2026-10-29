@@ -363,131 +363,222 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="commands-grid">
         <!-- COMMANDS_GRID_START -->
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="profile" data-cat="Diagnostics">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli profile</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Probe router model, firmware variant, and auto-detect HTTP session/token encryption.</p>
-        </div>
         <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="status" data-cat="Diagnostics">
           <div class="flex items-center justify-between mb-2">
             <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli status</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">WAN IP, gateway, DNS servers, uptime, cellular network type, and connection state.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Show full router & cellular telemetry</p>
         </div>
         <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="signal" data-cat="Cellular">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli signal [--watch]</code>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli signal</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Real-time radio telemetry: RSRP (dBm), RSRQ (dB), SINR (dB), RSSI, Band (B1/B3/B8/B20/B40).</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Show RF signal metrics (RSRP, RSRQ, SNR)</p>
         </div>
         <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="cell-lock" data-cat="Cellular">
           <div class="flex items-center justify-between mb-2">
             <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli cell-lock</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Force-lock modem to specific carrier band (e.g., Band 3 1800MHz) or Physical Cell ID (PCI).</p>
+          <p class="text-slate-300 text-xs leading-relaxed">View or configure LTE Cell Lock</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="set-mode" data-cat="Cellular">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="dns" data-cat="System">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli set-mode 4G_ONLY</code>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli dns</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage router DNS settings</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="ipv6" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli ipv6</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Toggle IPv6 stack (on/off)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="ussd" data-cat="Cellular">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli ussd</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Switch cellular RAT between AUTO, 4G_ONLY, 3G_ONLY, and 5G_NSA to prevent 3G drops.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Execute USSD query (e.g. *344# or *123#)</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="apn" data-cat="Cellular">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="sms" data-cat="SMS">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli apn [--set name]</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Read or update APN profile (e.g. Hutch 'hutch3g' / 'net'), PDP type (IPv4/IPv6), and auth.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="sms-list" data-cat="SMS">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli sms list</code>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli sms</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-purple-500/10 text-purple-400 border-purple-500/20">SMS</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">List SIM card inbox messages, extract 2FA verification codes, view sender, and timestamp.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="sms-send" data-cat="SMS">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli sms send</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-purple-500/10 text-purple-400 border-purple-500/20">SMS</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Transmit SMS message via the SIM modem to activate cellular bundles or query balance.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="ussd" data-cat="SMS">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli ussd "*344#"</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-purple-500/10 text-purple-400 border-purple-500/20">SMS</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Send interactive USSD codes to carrier gateway for instant balance checks and reloads.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="wifi-status" data-cat="Wi-Fi">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli wifi status</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Display 2.4GHz & 5GHz SSID status, channel number, bandwidth (20/40/80MHz), and encryption.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="wifi-channel" data-cat="Wi-Fi">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli wifi set-channel</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Change broadcast channel to avoid apartment RF congestion (e.g., Channels 1, 6, 11).</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="clients" data-cat="Wi-Fi">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli clients</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">List all connected LAN/Wi-Fi devices with MAC addresses, hostnames, assigned IPs, and bandwidth.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Read or send SMS</p>
         </div>
         <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="reboot" data-cat="System">
           <div class="flex items-center justify-between mb-2">
             <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli reboot</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Cleanly restart router OS and modem module without touching physical reset pin.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Reboot the router</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="reconnect" data-cat="System">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="profile" data-cat="Diagnostics">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli reconnect</code>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli profile</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Check active network profile and gateway safety</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="config" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli config</code>
             <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Disconnect and reconnect WAN cellular session to trigger new CGNAT IP lease.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage stored credentials</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="optimize-network" data-cat="Tuning">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="cookie" data-cat="System">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli optimize-network</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-teal-500/10 text-teal-400 border-teal-500/20">Tuning</span>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli cookie</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Apply/Revert kernel BBR, 1420 MTU clamping, Cloudflare 1.1.1.1 DNS, and TCP buffer sizes.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">View or save browser session cookie</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="pulse" data-cat="Tuning">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="wifi-guard" data-cat="Wi-Fi">
           <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli pulse</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-teal-500/10 text-teal-400 border-teal-500/20">Tuning</span>
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli wifi-guard</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Background UDP keepalive daemon that keeps 4G tower carrier states active indefinitely.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Verify and optimize Wi-Fi link stability (no Ethernet needed)</p>
         </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="repl" data-cat="Interactive">
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="clients" data-cat="Diagnostics">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli clients</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">List connected LAN devices (IP, MAC, Hostname)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="reservation" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli reservation</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage DHCP static IP reservations</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="data-limit" data-cat="Cellular">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli data-limit</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View or set monthly cellular data cap</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="wifi" data-cat="Wi-Fi">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli wifi</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View or configure Wi-Fi radios (2.4GHz / 5GHz)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="leds" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli leds</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Control router LEDs and Night Mode schedule</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="diag" data-cat="Diagnostics">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli diag</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Run router WAN and internet diagnostic test</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="band" data-cat="Cellular">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli band</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View or lock LTE Band (e.g. 3, 8, 40, auto)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="calibrate" data-cat="Cellular">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli calibrate</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Cellular</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Autonomous RF band calibration & Live Web UI</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="logs" data-cat="Diagnostics">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli logs</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-blue-500/10 text-blue-400 border-blue-500/20">Diagnostics</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Read or clear system & cellular event logs</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="guest-wifi" data-cat="Wi-Fi">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli guest-wifi</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-amber-500/10 text-amber-400 border-amber-500/20">Wi-Fi</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View or configure dual-band Guest Wi-Fi</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="port-forward" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli port-forward</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage NAT virtual server port forwarding rules</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="dmz" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli dmz</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View or configure DMZ host forwarding</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="upnp" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli upnp</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage Universal Plug and Play (UPnP)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="reboot-schedule" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli reboot-schedule</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Manage automated periodic reboot schedule</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="time" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli time</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View router system clock or trigger NTP sync</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="op-mode" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli op-mode</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View router operation mode (3G/4G vs Wireless)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="ddns" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli ddns</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">View Dynamic DNS (DDNS) providers and status</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="fw-check" data-cat="System">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli fw-check</code>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed">Check for official TP-Link online firmware updates</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="repl" data-cat="System">
           <div class="flex items-center justify-between mb-2">
             <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli repl</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-cyan-500/10 text-cyan-400 border-cyan-500/20">Interactive</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-red-500/10 text-red-400 border-red-500/20">System</span>
           </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Interactive shell session with tab-completion, live signal meters, and history navigation.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 cmd-card" data-cmd="benchmark" data-cat="Interactive">
-          <div class="flex items-center justify-between mb-2">
-            <code class="text-tplink-cyan text-xs font-bold font-mono">tplink-cli benchmark</code>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono border bg-cyan-500/10 text-cyan-400 border-cyan-500/20">Interactive</span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">Run latency jitter, packet fragmentation tests, and bufferbloat grade evaluation.</p>
+          <p class="text-slate-300 text-xs leading-relaxed">Launch interactive REPL console</p>
         </div>
         <!-- COMMANDS_GRID_END -->
       </div>
