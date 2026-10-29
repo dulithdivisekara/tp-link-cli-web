@@ -6,7 +6,8 @@
     "badge_color": "blue",
     "description": "Show full router & cellular telemetry",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": true
   },
@@ -17,7 +18,8 @@
     "badge_color": "emerald",
     "description": "Show RF signal metrics (RSRP, RSRQ, SNR)",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": true
   },
@@ -29,6 +31,7 @@
     "description": "View or configure LTE Cell Lock",
     "flags": [
       "--legacy",
+      "--mono",
       "--enable",
       "--disable",
       "--earfcn",
@@ -44,6 +47,7 @@
     "description": "Manage router DNS settings",
     "flags": [
       "--legacy",
+      "--mono",
       "<action>"
     ],
     "has_demo": false
@@ -56,7 +60,10 @@
     "description": "Toggle IPv6 stack (on/off)",
     "flags": [
       "--legacy",
-      "<state>"
+      "--mono",
+      "<state>",
+      "-i",
+      "--interactive"
     ],
     "has_demo": false
   },
@@ -68,6 +75,7 @@
     "description": "Execute USSD query (e.g. *344# or *123#)",
     "flags": [
       "--legacy",
+      "--mono",
       "<code>"
     ],
     "has_demo": true
@@ -80,6 +88,7 @@
     "description": "Read or send SMS",
     "flags": [
       "--legacy",
+      "--mono",
       "--limit",
       "--folder"
     ],
@@ -93,6 +102,7 @@
     "description": "Reboot the router",
     "flags": [
       "--legacy",
+      "--mono",
       "-y",
       "--yes"
     ],
@@ -105,7 +115,8 @@
     "badge_color": "blue",
     "description": "Check active network profile and gateway safety",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -116,7 +127,8 @@
     "badge_color": "indigo",
     "description": "Manage stored credentials",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -128,6 +140,7 @@
     "description": "View or save browser session cookie",
     "flags": [
       "--legacy",
+      "--mono",
       "<cookie_val>"
     ],
     "has_demo": false
@@ -140,6 +153,7 @@
     "description": "Verify and optimize Wi-Fi link stability (no Ethernet needed)",
     "flags": [
       "--legacy",
+      "--mono",
       "--optimize",
       "--fix"
     ],
@@ -152,7 +166,8 @@
     "badge_color": "blue",
     "description": "List connected LAN devices (IP, MAC, Hostname)",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": true
   },
@@ -163,7 +178,8 @@
     "badge_color": "indigo",
     "description": "Manage DHCP static IP reservations",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -175,6 +191,7 @@
     "description": "View or set monthly cellular data cap",
     "flags": [
       "--legacy",
+      "--mono",
       "--limit",
       "--day"
     ],
@@ -188,6 +205,7 @@
     "description": "View or configure Wi-Fi radios (2.4GHz / 5GHz)",
     "flags": [
       "--legacy",
+      "--mono",
       "--band",
       "--toggle",
       "--ssid"
@@ -202,6 +220,7 @@
     "description": "Control router LEDs and Night Mode schedule",
     "flags": [
       "--legacy",
+      "--mono",
       "--night-mode",
       "--start",
       "--end"
@@ -215,7 +234,8 @@
     "badge_color": "blue",
     "description": "Run router WAN and internet diagnostic test",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -227,7 +247,10 @@
     "description": "View or lock LTE Band (e.g. 3, 8, 40, auto)",
     "flags": [
       "--legacy",
-      "<band>"
+      "--mono",
+      "<band>",
+      "-i",
+      "--interactive"
     ],
     "has_demo": true
   },
@@ -239,12 +262,15 @@
     "description": "Autonomous RF band calibration & Live Web UI",
     "flags": [
       "--legacy",
+      "--mono",
       "--web",
       "--no-web",
       "--port",
       "--bands",
       "--timeout",
-      "--dry-run"
+      "--dry-run",
+      "-i",
+      "--interactive"
     ],
     "has_demo": true
   },
@@ -256,6 +282,7 @@
     "description": "Read or clear system & cellular event logs",
     "flags": [
       "--legacy",
+      "--mono",
       "--lines",
       "-n",
       "--module",
@@ -274,6 +301,7 @@
     "description": "View or configure dual-band Guest Wi-Fi",
     "flags": [
       "--legacy",
+      "--mono",
       "--toggle",
       "--band",
       "--ssid",
@@ -291,7 +319,8 @@
     "badge_color": "indigo",
     "description": "Manage NAT virtual server port forwarding rules",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -303,6 +332,7 @@
     "description": "View or configure DMZ host forwarding",
     "flags": [
       "--legacy",
+      "--mono",
       "<state>",
       "<ip>"
     ],
@@ -316,6 +346,7 @@
     "description": "Manage Universal Plug and Play (UPnP)",
     "flags": [
       "--legacy",
+      "--mono",
       "<toggle>"
     ],
     "has_demo": false
@@ -328,6 +359,7 @@
     "description": "Manage automated periodic reboot schedule",
     "flags": [
       "--legacy",
+      "--mono",
       "<toggle>",
       "--time",
       "--mode",
@@ -343,6 +375,7 @@
     "description": "View router system clock or trigger NTP sync",
     "flags": [
       "--legacy",
+      "--mono",
       "--sync"
     ],
     "has_demo": false
@@ -354,7 +387,8 @@
     "badge_color": "indigo",
     "description": "View router operation mode (3G/4G vs Wireless)",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -365,7 +399,8 @@
     "badge_color": "indigo",
     "description": "View Dynamic DNS (DDNS) providers and status",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -376,7 +411,8 @@
     "badge_color": "indigo",
     "description": "Check for official TP-Link online firmware updates",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -387,7 +423,8 @@
     "badge_color": "indigo",
     "description": "Launch interactive REPL console",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -398,7 +435,8 @@
     "badge_color": "indigo",
     "description": "Display classic standard argparse help layout",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   },
@@ -409,7 +447,8 @@
     "badge_color": "indigo",
     "description": "Launch interactive Terminal UI (TUI)",
     "flags": [
-      "--legacy"
+      "--legacy",
+      "--mono"
     ],
     "has_demo": false
   }
