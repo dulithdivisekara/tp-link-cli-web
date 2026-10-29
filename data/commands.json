@@ -5,7 +5,9 @@
     "category": "Diagnostics",
     "badge_color": "blue",
     "description": "Show full router & cellular telemetry",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": true
   },
   {
@@ -14,7 +16,9 @@
     "category": "Cellular",
     "badge_color": "emerald",
     "description": "Show RF signal metrics (RSRP, RSRQ, SNR)",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": true
   },
   {
@@ -24,6 +28,7 @@
     "badge_color": "emerald",
     "description": "View or configure LTE Cell Lock",
     "flags": [
+      "--legacy",
       "--enable",
       "--disable",
       "--earfcn",
@@ -38,6 +43,7 @@
     "badge_color": "indigo",
     "description": "Manage router DNS settings",
     "flags": [
+      "--legacy",
       "<action>"
     ],
     "has_demo": false
@@ -49,6 +55,7 @@
     "badge_color": "indigo",
     "description": "Toggle IPv6 stack (on/off)",
     "flags": [
+      "--legacy",
       "<state>"
     ],
     "has_demo": false
@@ -60,6 +67,7 @@
     "badge_color": "emerald",
     "description": "Execute USSD query (e.g. *344# or *123#)",
     "flags": [
+      "--legacy",
       "<code>"
     ],
     "has_demo": true
@@ -71,6 +79,7 @@
     "badge_color": "purple",
     "description": "Read or send SMS",
     "flags": [
+      "--legacy",
       "--limit",
       "--folder"
     ],
@@ -83,6 +92,7 @@
     "badge_color": "indigo",
     "description": "Reboot the router",
     "flags": [
+      "--legacy",
       "-y",
       "--yes"
     ],
@@ -94,7 +104,9 @@
     "category": "Diagnostics",
     "badge_color": "blue",
     "description": "Check active network profile and gateway safety",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -103,7 +115,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "Manage stored credentials",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -113,6 +127,7 @@
     "badge_color": "indigo",
     "description": "View or save browser session cookie",
     "flags": [
+      "--legacy",
       "<cookie_val>"
     ],
     "has_demo": false
@@ -124,6 +139,7 @@
     "badge_color": "amber",
     "description": "Verify and optimize Wi-Fi link stability (no Ethernet needed)",
     "flags": [
+      "--legacy",
       "--optimize",
       "--fix"
     ],
@@ -135,7 +151,9 @@
     "category": "Diagnostics",
     "badge_color": "blue",
     "description": "List connected LAN devices (IP, MAC, Hostname)",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": true
   },
   {
@@ -144,7 +162,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "Manage DHCP static IP reservations",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -154,6 +174,7 @@
     "badge_color": "emerald",
     "description": "View or set monthly cellular data cap",
     "flags": [
+      "--legacy",
       "--limit",
       "--day"
     ],
@@ -166,6 +187,7 @@
     "badge_color": "amber",
     "description": "View or configure Wi-Fi radios (2.4GHz / 5GHz)",
     "flags": [
+      "--legacy",
       "--band",
       "--toggle",
       "--ssid"
@@ -179,6 +201,7 @@
     "badge_color": "indigo",
     "description": "Control router LEDs and Night Mode schedule",
     "flags": [
+      "--legacy",
       "--night-mode",
       "--start",
       "--end"
@@ -191,7 +214,9 @@
     "category": "Diagnostics",
     "badge_color": "blue",
     "description": "Run router WAN and internet diagnostic test",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -201,6 +226,7 @@
     "badge_color": "emerald",
     "description": "View or lock LTE Band (e.g. 3, 8, 40, auto)",
     "flags": [
+      "--legacy",
       "<band>"
     ],
     "has_demo": true
@@ -212,6 +238,7 @@
     "badge_color": "emerald",
     "description": "Autonomous RF band calibration & Live Web UI",
     "flags": [
+      "--legacy",
       "--web",
       "--no-web",
       "--port",
@@ -228,6 +255,7 @@
     "badge_color": "blue",
     "description": "Read or clear system & cellular event logs",
     "flags": [
+      "--legacy",
       "--lines",
       "-n",
       "--module",
@@ -245,6 +273,7 @@
     "badge_color": "amber",
     "description": "View or configure dual-band Guest Wi-Fi",
     "flags": [
+      "--legacy",
       "--toggle",
       "--band",
       "--ssid",
@@ -261,7 +290,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "Manage NAT virtual server port forwarding rules",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -271,6 +302,7 @@
     "badge_color": "indigo",
     "description": "View or configure DMZ host forwarding",
     "flags": [
+      "--legacy",
       "<state>",
       "<ip>"
     ],
@@ -283,6 +315,7 @@
     "badge_color": "indigo",
     "description": "Manage Universal Plug and Play (UPnP)",
     "flags": [
+      "--legacy",
       "<toggle>"
     ],
     "has_demo": false
@@ -294,6 +327,7 @@
     "badge_color": "indigo",
     "description": "Manage automated periodic reboot schedule",
     "flags": [
+      "--legacy",
       "<toggle>",
       "--time",
       "--mode",
@@ -308,6 +342,7 @@
     "badge_color": "indigo",
     "description": "View router system clock or trigger NTP sync",
     "flags": [
+      "--legacy",
       "--sync"
     ],
     "has_demo": false
@@ -318,7 +353,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "View router operation mode (3G/4G vs Wireless)",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -327,7 +364,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "View Dynamic DNS (DDNS) providers and status",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -336,7 +375,9 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "Check for official TP-Link online firmware updates",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   },
   {
@@ -345,7 +386,20 @@
     "category": "System",
     "badge_color": "indigo",
     "description": "Launch interactive REPL console",
-    "flags": [],
+    "flags": [
+      "--legacy"
+    ],
+    "has_demo": false
+  },
+  {
+    "name": "legacy",
+    "command": "tplink-cli legacy",
+    "category": "System",
+    "badge_color": "indigo",
+    "description": "Display classic standard argparse help layout",
+    "flags": [
+      "--legacy"
+    ],
     "has_demo": false
   }
 ]
